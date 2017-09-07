@@ -11,7 +11,7 @@ describe "visitor becomes user" do
       click_button "Create Account"
 
       expect(current_path).to eq user_path(User.last)
-      expect(page).to have_content("Welcom, Aaron")
+      expect(page).to have_content("Aaron's IdeaBox")
     end
   end
 end

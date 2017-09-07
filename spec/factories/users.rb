@@ -8,7 +8,7 @@ FactoryGirl.define do
       "email#{i}@#{i}.com"
     end
 
-    sequence :password_digest do |i|
+    sequence :password do |i|
       "password#{i}"
     end
 

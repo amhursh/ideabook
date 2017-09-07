@@ -11,6 +11,10 @@ describe "visitor can log in as user" do
 
       fill_in "session[email]", with: user.email
       fill_in "session[password]", with: user.password
+      click_button "Log In"
+
+      expect(current_path).to eq user_path(user)
+      expect(page).to have_content(user.username)
     end
   end
 end

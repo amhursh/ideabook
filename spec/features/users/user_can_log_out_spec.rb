@@ -16,7 +16,7 @@ describe "user can log out" do
       click_on "Log Out"
 
       expect(current_path).to eq root_path
-      expect(page).to have_content("Log In")
+      expect(page).to have_content("Logged Out")
     end
   end
 end

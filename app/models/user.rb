@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   enum role: ["default", "admin"]
+
+  has_many :ideas
 end

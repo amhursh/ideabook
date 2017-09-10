@@ -6,7 +6,7 @@
 <body>
 	<ul>
 	<% @categories.each do |category| %>
-		<li id="#{category.id}"><%= category.name %></li>
+		<li class="category_<%= category.id %>"><%= category.name %></li>
 	<% end %>
 	</ul>
 </body>

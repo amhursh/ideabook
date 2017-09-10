@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Admin can delete new category" do
 	context "admin visits user page and clicks link to see all categories" do
-		xscenario "admin clicks link to destroy category" do
+		scenario "admin clicks link to destroy category" do
 			admin = create(:user, role: "admin")
 			category_one = create(:category)
 			category_two = create(:category)
@@ -16,7 +16,13 @@ describe "Admin can delete new category" do
 
 			expect(current_path).to eq admin_categories_path
 
-			click_on 
+			within("##{category_two.id}") do
+				click_on "Delete"
+			end
+
+			expect(current_path).to eq admin_categories_path
+			expect(page).to_not have_content(cat_two_name)
+			expect(page).to have_content(cat_one_name)
 		end
 	end
 end

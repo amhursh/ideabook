@@ -17,6 +17,15 @@ class Admin::CategoriesController < Admin::BaseController
 		end
 	end
 
+	def destroy
+		@category = Category.find(params[:id])
+		if @category.destroy
+			redirect_to admin_categories_path
+		else
+			redirect_to admin_categories_path
+		end
+	end
+
 	private
 
 	def category_params

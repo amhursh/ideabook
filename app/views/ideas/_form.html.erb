@@ -1,0 +1,12 @@
+<%= form_for [current_user, @idea] do |f| %>
+	<%= f.label :title, "Title" %>
+	<%= f.text_field :title %>
+
+	<%= f.label :body, "Description" %>
+	<%= f.text_area :body %>
+
+	<%= f.label :category_id, "Category" %>
+	<%= f.collection_select :category_id, @categories, :id, :name %>
+
+	<%= f.submit "Create Idea", :disable_with => 'Creating Idea...' %>
+<% end %>

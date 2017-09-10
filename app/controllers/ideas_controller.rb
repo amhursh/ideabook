@@ -24,6 +24,9 @@ class IdeasController < ApplicationController
 		@user = @idea.user
 	end
 
+	def edit
+	end
+
 	private
 
 	def idea_params

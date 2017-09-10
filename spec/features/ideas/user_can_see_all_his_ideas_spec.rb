@@ -11,7 +11,7 @@ describe "User visits user show page" do
 
 			click_on "See All Ideas"
 
-			expect(current_path).to eq user_ideas_path
+			expect(current_path).to eq user_ideas_path(user)
 			expect(page).to have_content(idea.id)
 			expect(page).to have_content(idea.title)
 			expect(page).to have_content("All ideas for #{user.username}")

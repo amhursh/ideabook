@@ -6,7 +6,10 @@
 <body>
 	<ul>
 	<% @categories.each do |category| %>
-		<li class="category_<%= category.id %>"><%= category.name %></li>
+		<li class="category_<%= category.id %>">
+		<%= category.name %>: 
+		<%= link_to "Delete", admin_category_path(category), method: :delete %>	
+		</li>
 	<% end %>
 	</ul>
 </body>

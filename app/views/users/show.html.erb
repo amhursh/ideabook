@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1><%= @user.username %>'s IdeaBox</h1>
+    <p><%= link_to "Create an Idea", new_user_idea_path(@user) %></p>
     <p><%= link_to "See All Ideas", user_ideas_path(@user) %></p>
     <p><%= link_to "Log Out", logout_path, method: :delete %></p>
   </body>

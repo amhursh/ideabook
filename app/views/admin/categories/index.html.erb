@@ -4,6 +4,10 @@
 	<title>Categories</title>
 </head>
 <body>
-	
+	<ul>
+	<% @categories.each do |category| %>
+		<li><%= category.name %></li>
+	<% end %>
+	</ul>
 </body>
 </html>

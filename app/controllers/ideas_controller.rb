@@ -8,4 +8,7 @@ class IdeasController < ApplicationController
 		@idea = current_user.ideas.new
 	end
 
+	def create
+	end
+
 end

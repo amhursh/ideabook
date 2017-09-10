@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create a New Idea</title>
+</head>
+<body>
+	<%= form_for[@user, @idea] do |f| %>
+		<%= f.label :title, "Title" %>
+		<%= f.text_area :title %>
+
+		<%= f.label :body, "Description" %>
+		<%= f.text_field :body %>
+
+		<%= f.submit "Create", :disable_with => 'Creating Idea...' %>
+	<% end %>
+</body>
+</html>

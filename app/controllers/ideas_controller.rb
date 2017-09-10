@@ -4,4 +4,7 @@ class IdeasController < ApplicationController
 		@ideas = current_user.ideas
 	end
 
+	def new
+	end
+
 end

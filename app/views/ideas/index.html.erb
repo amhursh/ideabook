@@ -14,9 +14,10 @@
 		</thead>
 		<tbody>
 			<% @ideas.each do |idea| %>
-			<tr></tr>
-				<td><%= idea.title %></td>
+			<tr>
+				<td><%=link_to idea.title, user_idea_path(current_user, idea) %></td>
 				<td><%= idea.body %></td>	
+			</tr>
 			<% end %>
 		</tbody>
 	</table>

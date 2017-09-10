@@ -29,6 +29,15 @@ class IdeasController < ApplicationController
 		@categories = Category.all
 	end
 
+	def update
+		idea = current_user.ideas.find(params[:id])
+		if idea.update(idea_params)
+			redirect_to user_idea_path(current_user, idea)
+		else
+			render :edit
+		end
+	end
+
 	private
 
 	def idea_params

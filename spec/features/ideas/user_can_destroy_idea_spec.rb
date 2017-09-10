@@ -14,7 +14,6 @@ describe "User can destroy idea" do
 			visit user_path(user)
 
 			click_on "See All Ideas"
-			save_and_open_page
 
 			expect(page).to have_content(idea.title)
 			expect(page).to have_content(idea.body)
@@ -22,7 +21,6 @@ describe "User can destroy idea" do
 			click_on idea.title
 
 			click_on "Delete"
-			save_and_open_page
 
 			expect(current_path).to eq user_ideas_path(user)
 			expect(page).to_not have_content(idea_title)

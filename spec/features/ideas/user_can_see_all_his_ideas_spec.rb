@@ -10,6 +10,7 @@ describe "User visits user show page" do
 			visit user_path(user)
 
 			click_on "See All Ideas"
+			save_and_open_page
 
 			expect(current_path).to eq user_ideas_path(user)
 			expect(page).to have_content(idea.id)

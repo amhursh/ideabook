@@ -5,11 +5,20 @@
 </head>
 <body>
 	<h1>All ideas for <%= current_user.username %></h1>
-	<% @ideas.each do |idea| %>
-	<ul>
-		<li>Idea: <%= idea.title %></li>
-		<li>Descpription: <%= idea.body %></li>
-	</ul>
-	<% end %>
+	<table>
+		<thead>
+			<tr>
+				<th>Idea</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @ideas.each do |idea| %>
+			<tr></tr>
+				<td><%= idea.title %></td>
+				<td><%= idea.body %></td>	
+			<% end %>
+		</tbody>
+	</table>
 </body>
 </html>

@@ -16,7 +16,7 @@ describe "Admin can delete new category" do
 
 			expect(current_path).to eq admin_categories_path
 
-			within("##{category_two.id}") do
+			within(".category_#{category_two.id}") do
 				click_on "Delete"
 			end
 

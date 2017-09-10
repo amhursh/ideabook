@@ -5,6 +5,7 @@ class IdeasController < ApplicationController
 	end
 
 	def new
+		@idea = current_user.ideas.new
 	end
 
 end

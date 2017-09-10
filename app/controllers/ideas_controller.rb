@@ -18,6 +18,12 @@ class IdeasController < ApplicationController
 		end
 	end
 
+	def show
+		@idea = current_user.ideas.find(params[:id])
+		@category = @idea.category
+		@user = @idea.user
+	end
+
 	private
 
 	def idea_params

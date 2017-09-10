@@ -12,7 +12,7 @@ describe "Admin can delete new category" do
 
 			visit user_path(admin)
 
-			click_on "Manage Categories"
+			click_on "Delete a Category"
 
 			expect(current_path).to eq admin_categories_path
 

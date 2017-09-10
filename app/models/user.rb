@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+  has_many :ideas
+
   has_secure_password
+  
   validates :username, presence: true,
   					   uniqueness: true
   validates :email, presence: true,
@@ -7,6 +10,4 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   enum role: ["default", "admin"]
-
-  has_many :ideas
 end

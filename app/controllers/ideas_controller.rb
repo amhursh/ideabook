@@ -1,10 +1,11 @@
 class IdeasController < ApplicationController
 
 	def index
-		@ideas = current_user.ideas
+		@ideas = Idea.where(user_id: params[:user_id])
 	end
 
 	def new
+		@user = User.find(params[:user_id])
 		@idea = current_user.ideas.new
 		@categories = Category.all
 	end
@@ -19,13 +20,13 @@ class IdeasController < ApplicationController
 	end
 
 	def show
-		@idea = current_user.ideas.find(params[:id])
+		@idea = Idea.find(params[:id])
 		@category = @idea.category
-		@user = @idea.user
+		@user = User.find(params[:user_id])
 	end
 
 	def edit
-		@idea = current_user.ideas.find(params[:id])
+		@idea = Idea.find(params[:id])
 		@categories = Category.all
 	end
 
@@ -36,6 +37,14 @@ class IdeasController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@user = User.find(params[:user_id])
+		@idea = Idea.find(params[:id])
+		@idea.destroy
+
+		redirect_to user_ideas_path(@user)
 	end
 
 	private

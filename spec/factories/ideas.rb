@@ -1,8 +1,16 @@
 FactoryGirl.define do
   factory :idea do
-    title "MyString"
-    body "MyText"
-    user nil
-    category nil
+    
+    sequence :title do |i|
+    	"ideatitle#{i}"
+    end
+
+    sequence :body do |i| 
+    	"description#{i}"
+    end
+
+    user
+
+    category
   end
 end

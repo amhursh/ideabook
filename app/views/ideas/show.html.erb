@@ -8,5 +8,6 @@
 	<p><%= @idea.body %></p>
 	<p><%= @category %></p>
 	<p><%= link_to "Edit", edit_user_idea_path(current_user, @idea) %></p>
+	<p><%= link_to "Delete", user_idea_path(current_user, @idea), method: :delete %></p>
 </body>
 </html>

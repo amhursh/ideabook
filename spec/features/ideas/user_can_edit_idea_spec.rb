@@ -14,6 +14,9 @@ describe "User can edit idea" do
 			visit user_path(user)
 
 			click_on "See All Ideas"
+
+			click_on idea.title
+
 			click_on "Edit"
 			fill_in "idea[title]", with: "New Title"
 			click_on "Update Idea"

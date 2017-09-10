@@ -25,6 +25,8 @@ class IdeasController < ApplicationController
 	end
 
 	def edit
+		@idea = current_user.ideas.find(params[:id])
+		@categories = Category.all
 	end
 
 	private

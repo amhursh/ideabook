@@ -30,4 +30,16 @@ describe "Admin can create new category" do
 			expect(page).to_not have_content("Create New Category")
 		end
 	end
+
+	context "user tries to visit new category path" do
+		scenario "and sees 404" do
+			user = create(:user)
+			allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+			visit new_admin_category_path
+
+			expect(page).to_not have_content("New Category")
+			expect(page).to have_content("404")
+		end
+	end
 end

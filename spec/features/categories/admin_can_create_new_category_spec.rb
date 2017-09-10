@@ -19,4 +19,15 @@ describe "Admin can create new category" do
 			expect(page).to have_content("Awesome Category")
 		end
 	end
+
+	context "user visits user page" do
+		scenario "and cannot see link to create new category" do
+			user = create(:user)
+			allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+			visit user_path(user)
+
+			expect(page).to_not have_content("Create New Category")
+		end
+	end
 end

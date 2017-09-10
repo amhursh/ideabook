@@ -4,7 +4,7 @@
 	<title>Create a New Idea</title>
 </head>
 <body>
-	<%= form_for[@user, @idea] do |f| %>
+	<%= form_for [@user, @idea] do |f| %>
 		<%= f.label :title, "Title" %>
 		<%= f.text_area :title %>
 

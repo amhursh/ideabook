@@ -8,7 +8,8 @@
 	<% @images.each do |img| %>
 		<li class="image_#{img.id}">
 		<%= image_tag img.image.url(:standard) %>
-		<%= img.name %>	
+		<%= img.name %>
+		<%= link_to "Delete", admin_image_path(img), method: :delete %>	
 		</li>
 	<% end %>
 	</ul>

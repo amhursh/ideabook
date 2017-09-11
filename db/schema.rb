@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909224952) do
+ActiveRecord::Schema.define(version: 20170911023835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20170909224952) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "idea_images", force: :cascade do |t|
+    t.bigint "idea_id"
+    t.bigint "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idea_id"], name: "index_idea_images_on_idea_id"
+    t.index ["image_id"], name: "index_idea_images_on_image_id"
+  end
+
   create_table "ideas", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -28,8 +37,20 @@ ActiveRecord::Schema.define(version: 20170909224952) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "idea_image_id"
     t.index ["category_id"], name: "index_ideas_on_category_id"
+    t.index ["idea_image_id"], name: "index_ideas_on_idea_image_id"
     t.index ["user_id"], name: "index_ideas_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "name"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +62,9 @@ ActiveRecord::Schema.define(version: 20170909224952) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "idea_images", "ideas"
+  add_foreign_key "idea_images", "images"
   add_foreign_key "ideas", "categories"
+  add_foreign_key "ideas", "idea_images"
   add_foreign_key "ideas", "users"
 end

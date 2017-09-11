@@ -1,5 +1,9 @@
 class Admin::ImagesController < Admin::BaseController
 
+	def index
+		@images = Image.all
+	end
+
 	def new
 		@image = Image.new
 	end

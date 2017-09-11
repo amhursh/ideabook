@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Images</title>
+</head>
+<body>
+	<ul>
+	<% @images.each do |img| %>
+		<li>
+		<%= image_tag img.image.url(:standard) %>
+		<%= img.name %>	
+		</li>
+	<% end %>
+	</ul>
+</body>
+</html>

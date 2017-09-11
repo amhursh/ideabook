@@ -36,4 +36,15 @@ describe "Admin can delete new category" do
 			expect(page).to_not have_content("Delete a Category")
 		end
 	end
+
+	context "user tries to visit categories index" do
+		scenario "and sees 404"	do
+			user = create(:user)
+			allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+			visit admin_categories_path
+
+			expect(page).to have_content("404")
+		end	
+	end
 end

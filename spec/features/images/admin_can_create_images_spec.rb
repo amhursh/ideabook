@@ -13,12 +13,16 @@ describe "Admin can create new image" do
 			expect(current_path).to eq new_admin_image_path
 
 			fill_in "image[name]", with: "Bunny Rabbit"
-			attach_file("Upload your Image", Rails.root + "spec/fixtures/rabbit.jpeg")
+			attach_file("Attach an Image", fixture_image_path)
 			click_on "Create Image"
 
 			expect(current_path).to eq admin_images_path
 			expect(page).to have_content("Bunny Rabbit")
 			expect(page).to have_xpath("//img[contains(@src, 'rabbit.jpg')]")
+		end
+
+		def fixture_image_path
+			Rails.root.join('spec', 'fixtures', 'rabbit.jpg')
 		end
 	end
 end

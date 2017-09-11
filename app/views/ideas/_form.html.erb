@@ -9,7 +9,6 @@
 	<%= f.collection_select :category_id, @categories, :id, :name %>
 
 	<%= f.collection_check_boxes :image_ids, @images, :id, :name do |b| %>
-
 		<%= b.check_box %>
 		<%= b.label %>
 	<% end %>

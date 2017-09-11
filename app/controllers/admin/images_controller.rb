@@ -17,6 +17,15 @@ class Admin::ImagesController < Admin::BaseController
 		end
 	end
 
+	def destroy
+		@image = Image.find(params[:id])
+		if @image.destroy
+			redirect_to admin_images_path
+		else
+			redirect_to admin_images_path
+		end
+	end
+
 	private
 
 	def image_params

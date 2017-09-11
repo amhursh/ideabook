@@ -10,6 +10,7 @@ class IdeasController < BaseController
 		@user = User.find(params[:user_id])
 		@idea = current_user.ideas.new
 		@categories = Category.all
+		@images = Image.all
 	end
 
 	def create
@@ -30,6 +31,7 @@ class IdeasController < BaseController
 	def edit
 		@idea = Idea.find(params[:id])
 		@categories = Category.all
+		@images = Image.all
 	end
 
 	def update
@@ -52,7 +54,7 @@ class IdeasController < BaseController
 	private
 
 	def idea_params
-		params.require(:idea).permit(:title, :body, :category_id)
+		params.require(:idea).permit(:title, :body, :category_id, image_ids: [])
 	end
 
 end

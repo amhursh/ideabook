@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
+  before_action :logged_in?, except: [:new, :create]
 
   def new
     @user = User.new
@@ -15,7 +16,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    user = current_user
+    # user = User.find(params[:id])
+    # if current_user.default? && user.admin?
+    #   not_admin
+    # elsif current_user.id != params[:id].to_i
+    #   not_user
+    if not_authorized
+      render_404
+    else
+      @user = user
+    end
   end
 
   private

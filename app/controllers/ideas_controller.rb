@@ -1,4 +1,6 @@
-class IdeasController < ApplicationController
+class IdeasController < BaseController
+	before_action :logged_in?
+	before_action :authorized
 
 	def index
 		@ideas = Idea.where(user_id: params[:user_id])
@@ -20,9 +22,9 @@ class IdeasController < ApplicationController
 	end
 
 	def show
-		@idea = Idea.find(params[:id])
+  		@idea = Idea.find(params[:id])
 		@category = @idea.category
-		@user = User.find(params[:user_id])
+  		@user = User.find(params[:user_id])
 	end
 
 	def edit

@@ -6,7 +6,7 @@
 <body>
 	<ul>
 	<% @images.each do |img| %>
-		<li>
+		<li class="image_#{img.id}">
 		<%= image_tag img.image.url(:standard) %>
 		<%= img.name %>	
 		</li>

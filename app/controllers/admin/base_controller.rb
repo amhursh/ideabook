@@ -1,4 +1,5 @@
 class Admin::BaseController < ApplicationController
+	before_action :redirect?
 	before_action :require_admin
 
 	def require_admin

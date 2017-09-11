@@ -1,4 +1,5 @@
 class UsersController < BaseController
+  skip_before_action :redirect?, except: :show
   before_action :logged_in?, except: [:new, :create]
 
   def new
@@ -17,11 +18,6 @@ class UsersController < BaseController
 
   def show
     user = current_user
-    # user = User.find(params[:id])
-    # if current_user.default? && user.admin?
-    #   not_admin
-    # elsif current_user.id != params[:id].to_i
-    #   not_user
     if not_authorized
       render_404
     else

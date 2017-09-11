@@ -1,4 +1,5 @@
 class BaseController < ApplicationController
+	before_action :redirect?
 
 	def logged_in?
 		render file: '/public/404' unless current_user

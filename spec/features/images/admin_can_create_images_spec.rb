@@ -16,8 +16,6 @@ describe "Admin can create new image" do
 			attach_file("Attach an Image", fixture_image_path)
 			click_on "Create Image"
 
-			save_and_open_page
-
 			expect(current_path).to eq admin_images_path
 			expect(page).to have_content("Bunny Rabbit")
 			expect(page).to have_xpath("//img[contains(@src, 'rabbit.jpg')]")

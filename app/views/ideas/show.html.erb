@@ -5,8 +5,11 @@
 </head>
 <body>
 	<h1><%= @idea.title %></h1>
+	<% @idea.images.each do |img| %>
+		<p><%= image_tag img.image.url(:standard) %></p>
+	<% end %>
 	<p><%= @idea.body %></p>
-	<p><%= @category %></p>
+	<p><%= @category.name %></p>
 	<p><%= link_to "Edit", edit_user_idea_path(current_user, @idea) %></p>
 	<p><%= link_to "Delete", user_idea_path(current_user, @idea), method: :delete %></p>
 </body>

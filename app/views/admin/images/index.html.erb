@@ -6,7 +6,7 @@
 <body>
 	<ul>
 	<% @images.each do |img| %>
-		<li class="image_#{img.id}">
+		<li class="image_<%= img.id %>">
 		<%= image_tag img.image.url(:standard) %>
 		<%= img.name %>
 		<%= link_to "Delete", admin_image_path(img), method: :delete %>	

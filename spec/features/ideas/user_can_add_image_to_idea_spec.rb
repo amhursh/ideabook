@@ -21,6 +21,7 @@ describe "User creates Idea with Image" do
 			expect(current_path).to eq user_idea_path(user, user.ideas.first)
 			expect(page).to have_content("wow a bunny")
 			expect(page).to have_content("bunnies are great")
+			expect(page).to have_content(category.name)
 			expect(page).to have_xpath("//img[contains(@src, 'rabbit.jpg')]")
 		end
 	end

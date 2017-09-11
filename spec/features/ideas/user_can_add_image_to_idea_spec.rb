@@ -18,7 +18,7 @@ describe "User creates Idea with Image" do
 			check image1.name
 			click_on "Create Idea"
 
-			expect(current_path).to eq user_idea_path(user, user.ideas.last)
+			expect(current_path).to eq user_idea_path(user, user.ideas.first)
 			expect(page).to have_content("wow a bunny")
 			expect(page).to have_content("bunnies are great")
 			expect(page).to have_xpath("//img[contains(@src, 'rabbit.jpg')]")
